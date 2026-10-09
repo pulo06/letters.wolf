@@ -1,1191 +1,461 @@
-* {
-    box-sizing: border-box;
-}
+const letters = {
 
-html {
-    scroll-behavior: smooth;
-}
+    reminder: {
 
-body {
-    margin: 0;
-    min-height: 100vh;
+        title: "A Little Reminder",
 
-    background:
-        radial-gradient(
-            circle at 15% 18%,
-            rgba(169, 210, 230, 0.22),
-            transparent 18%
-        ),
-        radial-gradient(
-            circle at 84% 23%,
-            rgba(201, 228, 240, 0.20),
-            transparent 20%
-        ),
-        radial-gradient(
-            circle at 20% 78%,
-            rgba(185, 221, 234, 0.17),
-            transparent 19%
-        ),
-        #f7fbfd;
+        text: `
 
-    color: #708b9b;
-    font-family: "DM Sans", sans-serif;
+            <p>Dear Wolf,</p>
 
-    overflow-x: hidden;
-}
+            <p>
+                You're honestly one of the close friends I've made here at uni,
+                and I'm really glad I got to know you. It's funny because your
+                actual name is Ronya, but somehow I ended up naming you Wolf
+                and now we're just going with it haha.
+            </p>
 
+            <p>
+                You're such a nonchalant person sometimes lmao. You have this
+                way of acting like nothing really bothers you, and honestly,
+                I find that pretty funny. But even with that, you're someone
+                I genuinely enjoy having around.
+            </p>
 
-.background {
-    position: fixed;
-    inset: 0;
+            <p>
+                I'm really glad that uni gave me a friend like you. We've had
+                a lot of random moments together, and I hope we get to have
+                many more of them.
+            </p>
 
-    pointer-events: none;
-    overflow: hidden;
+            <p>
+                So yeah, just a little reminder that I'm really glad you're
+                my friend, Wolf. Even if I was the one who gave you that
+                ridiculous name in the first place haha.
+            </p>
 
-    z-index: 0;
-}
+            <p class="signature">
+                With love,<br>
+                Pulo
+            </p>
 
-.doodle {
-    position: absolute;
-    opacity: 0.36;
-}
+        `
+
+    },
 
-.dot {
-    width: 7px;
-    height: 7px;
+
+    things: {
+
+        title: "Little Things I Like",
+
+        text: `
 
-    border-radius: 50%;
+            <p>Dear Wolf,</p>
 
-    background: #a9cfe2;
-}
+            <p>
+                There are actually quite a few little things I like about you.
+                I really like how chill you are. You're just very... Wolf.
+                I don't know how else to explain it haha. You have that
+                nonchalant personality where you can just sit there looking
+                completely unbothered while everyone else is doing something stupid.
+            </p>
 
-.dot.blue {
-    background: #c4e0ec;
-}
+            <p>
+                And of course, I can't forget how you always treat me food hehe.
+                I'm definitely not complaining about that one. You already
+                know how to keep a friend around lmao.
+            </p>
 
-.dot.yellow {
-    background: #d8ebf2;
-}
+            <p>
+                I also really admire how good you are at volleyball. You make
+                it look so natural, and it's honestly pretty cool to watch
+                you play.
+            </p>
 
-.dot.green {
-    background: #c9e1e8;
-}
+            <p>
+                And honestly, I'm glad we became friends. Some friendships
+                don't need a lot of explaining or anything complicated. You
+                just become close, make random memories, joke around, and
+                somehow it becomes something you really appreciate.
+            </p>
 
+            <p>
+                So yeah, thanks for the food, the random moments, and just
+                being a good friend hehe.
+            </p>
 
-.small-flower {
-    position: absolute;
+            <p class="signature">
+                With love,<br>
+                Pulo
+            </p>
 
-    width: 42px;
-    height: 42px;
-}
+        `
 
-.small-flower .center {
-    position: absolute;
+    },
 
-    width: 10px;
-    height: 10px;
 
-    background: #8fb9cd;
+    heart: {
 
-    border-radius: 50%;
+        title: "Keep Walking",
 
-    left: 16px;
-    top: 16px;
+        text: `
+
+            <p>Dear Wolf,</p>
+
+            <p>
+                I hope you always remember that God is with you, even during
+                the parts of life that feel uncertain or when you don't really
+                know what comes next.
+            </p>
+
+            <p>
+                There will be times when things don't go the way you planned,
+                and there might be moments when you question where you're
+                going in life. But I hope you never feel like you have to
+                figure everything out by yourself. Trust God and let Him guide
+                you, even when you can't see the whole path yet.
+            </p>
+
+            <p>
+                I pray that God gives you wisdom for the decisions you make,
+                strength when things get difficult, and peace when your mind
+                feels heavy. I hope He protects you, keeps the right people
+                around you, and gives you many reasons to be grateful along
+                the way.
+            </p>
+
+            <p>
+                And Wolf, don't forget to enjoy the life you're living right
+                now too. Keep doing the things you love, keep growing, keep
+                making memories, and keep becoming the person you're meant to be.
+            </p>
+
+            <p>
+                You don't have to have everything figured out. Just keep
+                walking, trust God, and take things one step at a time.
+            </p>
+
+            <p>
+                I'm really glad our paths crossed here at uni, and I hope
+                we'll have many more years of friendship and stupid memories
+                ahead of us haha.
+            </p>
+
+            <p class="signature">
+                With love,<br>
+                Pulo
+            </p>
+
+        `
 
-    z-index: 2;
-}
-
-.small-flower span {
-    position: absolute;
-
-    width: 16px;
-    height: 13px;
-
-    border-radius: 50%;
-
-    background: #c5e1ed;
-}
-
-.small-flower span:nth-child(1) {
-    top: 2px;
-    left: 13px;
-}
-
-.small-flower span:nth-child(2) {
-    top: 13px;
-    left: 2px;
-
-    transform: rotate(-45deg);
-}
-
-.small-flower span:nth-child(3) {
-    top: 27px;
-    left: 12px;
-}
-
-.small-flower span:nth-child(4) {
-    top: 14px;
-    left: 25px;
-
-    transform: rotate(45deg);
-}
-
-.flower-blue span {
-    background: #b9dcea;
-}
-
-.flower-lavender span {
-    background: #d0e5ed;
-}
-
-.flower-yellow span {
-    background: #d9ebf1;
-}
-
-.flower-green span {
-    background: #c7e0e7;
-}
-
-
-.sparkle {
-    position: absolute;
-
-    width: 17px;
-    height: 17px;
-}
-
-.sparkle::before,
-.sparkle::after {
-    content: "";
-
-    position: absolute;
-
-    background: #a9cddd;
-
-    border-radius: 50%;
-}
-
-.sparkle::before {
-    width: 3px;
-    height: 17px;
-
-    left: 7px;
-    top: 0;
-}
-
-.sparkle::after {
-    width: 17px;
-    height: 3px;
-
-    left: 0;
-    top: 7px;
-}
-
-
-.paper-scrap {
-    position: absolute;
-
-    width: 45px;
-    height: 31px;
-
-    border-radius: 3px;
-
-    opacity: 0.42;
-
-    transform: rotate(-12deg);
-}
-
-.paper-pink {
-    background: #d8eaf1;
-}
-
-.paper-blue {
-    background: #c5e0ec;
-}
-
-.paper-yellow {
-    background: #e2eff3;
-}
-
-.paper-green {
-    background: #d2e6eb;
-}
-
-
-.page {
-    position: relative;
-
-    z-index: 2;
-
-    width: min(1180px, 94vw);
-
-    margin: 0 auto;
-
-    min-height: 100vh;
-
-    padding: 58px 20px 70px;
-
-    text-align: center;
-}
-
-.title {
-    margin: 0;
-
-    font-family: "Fraunces", serif;
-
-    font-size: clamp(70px, 8vw, 108px);
-
-    line-height: 0.9;
-
-    font-weight: 500;
-
-    letter-spacing: -4px;
-
-    color: #5f7f91;
-}
-
-.subtitle {
-    margin-top: 22px;
-
-    font-family: "DM Sans", sans-serif;
-
-    font-size: 14px;
-
-    font-weight: 500;
-
-    letter-spacing: 2px;
-
-    color: #8aaaba;
-}
-
-
-.mailbox-area {
-    position: relative;
-
-    width: 100%;
-
-    height: 390px;
-
-    margin-top: 28px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-}
-
-.mailbox-wrap {
-    position: relative;
-
-    width: 360px;
-    height: 310px;
-
-    cursor: pointer;
-
-    transition: transform 0.25s ease;
-}
-
-.mailbox-wrap:hover {
-    transform: translateY(-4px);
-}
-
-.mailbox-wrap.shake {
-    animation: mailboxShake 0.65s ease;
-}
-
-@keyframes mailboxShake {
-
-    0%,
-    100% {
-        transform: rotate(0deg);
     }
 
-    20% {
-        transform: rotate(-2deg);
+};
+
+
+
+const mailbox =
+    document.getElementById("mailbox");
+
+const lettersArea =
+    document.getElementById("lettersArea");
+
+const instruction =
+    document.getElementById("instruction");
+
+const overlay =
+    document.getElementById("letterOverlay");
+
+const closeLetter =
+    document.getElementById("closeLetter");
+
+const letterHeading =
+    document.getElementById("letterHeading");
+
+const letterBody =
+    document.getElementById("letterBody");
+
+const envelopes =
+    document.querySelectorAll(".envelope");
+
+
+
+let mailboxOpened = false;
+
+let selectedLetter = false;
+
+
+
+mailbox.addEventListener("click", () => {
+
+    if (mailboxOpened) {
+
+        return;
+
     }
 
-    40% {
-        transform: rotate(2deg);
+    mailboxOpened = true;
+
+    mailbox.classList.add("open");
+
+    mailbox.classList.add("shake");
+
+    setTimeout(() => {
+
+        mailbox.classList.remove("shake");
+
+    }, 700);
+
+
+
+    instruction.innerHTML =
+        "There are three letters inside.<br><strong>You can only choose one.</strong>";
+
+
+
+    setTimeout(() => {
+
+        lettersArea.classList.add("visible");
+
+
+
+        envelopes.forEach((envelope, index) => {
+
+            setTimeout(() => {
+
+                envelope.classList.add("pop");
+
+            }, index * 130);
+
+        });
+
+    }, 550);
+
+});
+
+
+
+envelopes.forEach(envelope => {
+
+    envelope.addEventListener("click", () => {
+
+        if (selectedLetter) {
+
+            return;
+
+        }
+
+        selectedLetter = true;
+
+
+
+        const key =
+            envelope.dataset.letter;
+
+        const letter =
+            letters[key];
+
+
+
+        if (!letter) {
+
+            return;
+
+        }
+
+
+
+        letterHeading.textContent =
+            letter.title;
+
+        letterBody.innerHTML =
+            letter.text;
+
+
+
+        envelope.classList.add("selected");
+
+
+
+        envelopes.forEach(other => {
+
+            if (other !== envelope) {
+
+                other.classList.add("locked");
+
+            }
+
+        });
+
+
+
+        setTimeout(() => {
+
+            overlay.classList.add("open");
+
+        }, 200);
+
+    });
+
+});
+
+
+
+closeLetter.addEventListener("click", () => {
+
+    overlay.classList.remove("open");
+
+});
+
+
+
+overlay.addEventListener("click", event => {
+
+    if (event.target === overlay) {
+
+        overlay.classList.remove("open");
+
     }
 
-    60% {
-        transform: rotate(-1.5deg);
+});
+
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        overlay.classList.remove("open");
+
     }
 
-    80% {
-        transform: rotate(1deg);
-    }
-}
-
-
-.mailbox-shadow {
-    position: absolute;
-
-    width: 230px;
-    height: 28px;
-
-    border-radius: 50%;
-
-    background: rgba(91, 123, 138, 0.09);
-
-    bottom: 8px;
-    left: 65px;
-
-    filter: blur(5px);
-}
-
-.mailbox-post {
-    position: absolute;
-
-    width: 30px;
-    height: 85px;
-
-    left: 165px;
-    bottom: 13px;
-
-    background: #b9d1dc;
-
-    border-radius: 3px;
-}
-
-.mailbox-body {
-    position: absolute;
-
-    width: 270px;
-    height: 235px;
-
-    left: 45px;
-    top: 28px;
-
-    background: #b9dce9;
-
-    border: 2px solid #9ec9dc;
-
-    border-radius: 92px 92px 24px 24px;
-
-    box-shadow:
-        inset 0 8px rgba(255, 255, 255, 0.32),
-        0 10px 22px rgba(91, 123, 138, 0.08);
-}
-
-.mailbox-inside {
-    position: absolute;
-
-    width: 230px;
-    height: 178px;
-
-    left: 18px;
-    top: 20px;
-
-    background: #aebfc7;
-
-    border-radius: 72px 72px 14px 14px;
-
-    overflow: hidden;
-}
-
-.mailbox-highlight {
-    position: absolute;
-
-    width: 180px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.20);
-
-    top: 18px;
-    left: 33px;
-}
-
-.mail-slot {
-    position: absolute;
-
-    width: 95px;
-    height: 10px;
-
-    background: #8ea5af;
-
-    border-radius: 30px;
-
-    top: 27px;
-    left: 75px;
-}
-
-.mail-inside-paper {
-    position: absolute;
-
-    width: 155px;
-    height: 88px;
-
-    background: #f9fcfd;
-
-    left: 45px;
-    top: 48px;
-
-    transform: rotate(-3deg);
-
-    border-radius: 3px;
-}
-
-.mail-inside-paper::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 0;
-
-    margin: auto;
-
-    width: 110px;
-    height: 55px;
-
-    border-left: 1px solid rgba(80, 110, 125, 0.12);
-    border-bottom: 1px solid rgba(80, 110, 125, 0.12);
-
-    transform: rotate(-45deg);
-}
-
-.mailbox-door {
-    position: absolute;
-
-    width: 270px;
-    height: 82px;
-
-    left: 0;
-    bottom: -2px;
-
-    background: #acd3e2;
-
-    border: 2px solid #94c1d5;
-
-    border-radius: 16px 16px 24px 24px;
-
-    transform-origin: top center;
-
-    transition:
-        transform 0.8s cubic-bezier(.2, .8, .2, 1);
-
-    z-index: 10;
-}
-
-.mailbox-wrap.open .mailbox-door {
-    transform: perspective(500px) rotateX(-68deg);
-}
-
-.mail-label {
-    position: absolute;
-
-    width: 136px;
-    height: 47px;
-
-    background: #f7fbfc;
-
-    left: 67px;
-    top: 17px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size: 23px;
-
-    color: #668596;
-
-    transform: rotate(-2deg);
-
-    border-radius: 3px;
-}
-
-.mail-handle {
-    position: absolute;
-
-    width: 28px;
-    height: 8px;
-
-    border-radius: 10px;
-
-    background: #86afc0;
-
-    left: 128px;
-    bottom: 10px;
-}
-
-
-.mail-flower {
-    position: absolute;
-
-    width: 70px;
-    height: 135px;
-
-    bottom: 43px;
-
-    z-index: 12;
-}
-
-.mail-flower.left {
-    left: -20px;
-
-    transform: rotate(-5deg);
-}
-
-.mail-flower.right {
-    right: -20px;
-
-    transform: scaleX(-1) rotate(-5deg);
-}
-
-.flower-stem {
-    position: absolute;
-
-    width: 5px;
-    height: 100px;
-
-    background: #9fbc9e;
-
-    left: 32px;
-    top: 31px;
-
-    border-radius: 10px;
-}
-
-.flower-leaf {
-    position: absolute;
-
-    width: 30px;
-    height: 15px;
-
-    background: #b3cdaa;
-
-    border-radius: 100% 0 100% 0;
-}
-
-.flower-leaf.one {
-    left: 5px;
-    top: 72px;
-
-    transform: rotate(-25deg);
-}
-
-.flower-leaf.two {
-    left: 35px;
-    top: 91px;
-
-    transform: rotate(45deg);
-}
-
-.flower-head {
-    position: absolute;
-
-    width: 47px;
-    height: 47px;
-
-    top: 0;
-    left: 8px;
-}
-
-.flower-head::before,
-.flower-head::after {
-    content: "";
-
-    position: absolute;
-
-    background: #a9d2e5;
-
-    width: 22px;
-    height: 25px;
-
-    border-radius: 70% 70% 45% 45%;
-}
-
-.flower-head::before {
-    left: 0;
-    top: 13px;
-
-    transform: rotate(-16deg);
-
-    box-shadow:
-        13px -7px 0 #b9ddea,
-        27px 2px 0 #9bc8dd;
-}
-
-.flower-head::after {
-    width: 17px;
-    height: 27px;
-
-    background: #c9e4ee;
-
-    left: 15px;
-    top: 8px;
-
-    border-radius: 60% 60% 45% 45%;
-}
-
-
-.instruction {
-    margin-top: -4px;
-
-    margin-bottom: 25px;
-
-    color: #819aa7;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-}
-
-.instruction strong {
-    font-weight: 600;
-}
-
-
-.letters-area {
-    position: relative;
-
-    width: min(750px, 94vw);
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 24px;
-
-    justify-items: center;
-
-    opacity: 0;
-
-    transform: translateY(30px);
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.6s ease,
-        transform 0.7s ease;
-}
-
-.letters-area.visible {
-    opacity: 1;
-
-    transform: translateY(0);
-
-    pointer-events: auto;
-}
-
-.envelope {
-    position: relative;
-
-    width: 178px;
-    height: 118px;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.4s ease,
-        filter 0.4s ease;
-
-    opacity: 0;
-
-    transform:
-        translateY(-55px)
-        scale(0.75);
-}
-
-.envelope.pop {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.envelope:hover {
-    transform:
-        translateY(-8px)
-        rotate(-1deg)
-        scale(1.03);
-}
-
-.envelope.locked {
-    opacity: 0.25;
-
-    filter: grayscale(0.3);
-
-    pointer-events: none;
-}
-
-.envelope.selected {
-    transform:
-        translateY(-10px)
-        scale(1.04);
-}
-
-
-.envelope-back {
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: 5px;
-
-    box-shadow:
-        0 8px 18px rgba(90, 115, 125, 0.1);
-}
-
-
-.envelope:nth-child(1) .envelope-back {
-    background: #c9e5ef;
-}
-
-.envelope:nth-child(1) .envelope-flap {
-    border-top-color: #afd4e4;
-}
-
-.envelope:nth-child(1) .envelope-left,
-.envelope:nth-child(1) .envelope-right {
-    border-left-color: #beddea;
-    border-right-color: #beddea;
-}
-
-.envelope:nth-child(1) .envelope-bottom {
-    border-bottom-color: #b5d8e6;
-}
-
-.envelope:nth-child(2) .envelope-back {
-    background: #d8ebf2;
-}
-
-.envelope:nth-child(2) .envelope-flap {
-    border-top-color: #c2dfeb;
-}
-
-.envelope:nth-child(2) .envelope-left,
-.envelope:nth-child(2) .envelope-right {
-    border-left-color: #cee5ed;
-    border-right-color: #cee5ed;
-}
-
-.envelope:nth-child(2) .envelope-bottom {
-    border-bottom-color: #c6e1ea;
-}
-
-.envelope:nth-child(3) .envelope-back {
-    background: #e2f0f4;
-}
-
-.envelope:nth-child(3) .envelope-flap {
-    border-top-color: #cfe5ed;
-}
-
-.envelope:nth-child(3) .envelope-left,
-.envelope:nth-child(3) .envelope-right {
-    border-left-color: #d8e9ef;
-    border-right-color: #d8e9ef;
-}
-
-.envelope:nth-child(3) .envelope-bottom {
-    border-bottom-color: #d2e6ed;
-}
-
-.envelope-flap {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left: 89px solid transparent;
-    border-right: 89px solid transparent;
-    border-top: 60px solid;
-
-    z-index: 3;
-}
-
-.envelope-left {
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 0;
-
-    border-top: 59px solid transparent;
-    border-bottom: 59px solid transparent;
-    border-left: 89px solid;
-
-    z-index: 2;
-}
-
-.envelope-right {
-    position: absolute;
-
-    right: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 0;
-
-    border-top: 59px solid transparent;
-    border-bottom: 59px solid transparent;
-    border-right: 89px solid;
-
-    z-index: 2;
-}
-
-.envelope-bottom {
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left: 89px solid transparent;
-    border-right: 89px solid transparent;
-    border-bottom: 65px solid;
-
-    z-index: 4;
-}
-
-.stamp {
-    position: absolute;
-
-    width: 25px;
-    height: 29px;
-
-    right: 13px;
-    top: 15px;
-
-    background: #acd4e3;
-
-    border: 2px dashed rgba(80, 120, 140, 0.2);
-
-    z-index: 6;
-}
-
-
-.envelope-title {
-    position: absolute;
-
-    left: 50%;
-    top: 72px;
-
-    transform: translateX(-50%);
-
-    width: 145px;
-
-    z-index: 7;
-
-    font-family: "Fraunces", serif;
-
-    font-size: 14px;
-
-    color: #668493;
-
-    line-height: 1.15;
-}
-
-
-.letter-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(244, 250, 252, 0.94);
-
-    backdrop-filter: blur(7px);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition: opacity 0.45s ease;
-
-    z-index: 100;
-}
-
-.letter-overlay.open {
-    opacity: 1;
-
-    pointer-events: auto;
-}
-
-.letter-paper {
-    position: relative;
+});
 
-    width: min(720px, 94vw);
 
-    max-height: 88vh;
 
-    overflow-y: auto;
+function createPetal() {
 
-    padding: 58px clamp(30px, 7vw, 70px);
+    const petal =
+        document.createElement("div");
 
-    background: #fcfeff;
+    petal.className = "petal";
 
-    border-radius: 5px;
 
-    box-shadow:
-        0 20px 50px rgba(85, 110, 122, 0.14);
 
-    transform:
-        translateY(35px)
-        scale(0.96);
+    petal.style.left =
+        Math.random() * 100 + "vw";
 
-    transition:
-        transform 0.5s cubic-bezier(.2, .8, .2, 1);
+    petal.style.top =
+        "-20px";
 
-    text-align: left;
-}
-
-.letter-overlay.open .letter-paper {
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.close-letter {
-    position: absolute;
 
-    top: 18px;
-    right: 22px;
 
-    width: 35px;
-    height: 35px;
+    const colors = [
 
-    border: none;
+        "#A9D2E6",
+        "#B9DDEA",
+        "#CBE7F0",
+        "#DCEFF5",
+        "#8FBFD7"
 
-    background: transparent;
+    ];
 
-    font-size: 27px;
 
-    font-weight: 300;
 
-    color: #8ca3ae;
+    petal.style.background =
+        colors[
+            Math.floor(
+                Math.random() * colors.length
+            )
+        ];
 
-    cursor: pointer;
-}
-
 
-.letter-heading {
-    margin: 0 0 32px;
 
-    font-family: "Fraunces", serif;
+    petal.style.animationDuration =
+        (4 + Math.random() * 3) + "s";
 
-    font-size: clamp(30px, 5vw, 45px);
 
-    font-weight: 500;
 
-    color: #5f7d8c;
+    document.body.appendChild(petal);
 
-    text-align: center;
-}
 
-.letter-body {
-    font-size: 15px;
 
-    line-height: 1.85;
-
-    color: #687f8b;
-}
+    requestAnimationFrame(() => {
 
-.letter-body p {
-    margin: 0 0 22px;
-}
+        petal.classList.add("active");
 
-.letter-body strong {
-    font-weight: 600;
+    });
 
-    color: #607b89;
-}
 
-.letter-body .signature {
-    margin-top: 32px;
 
-    font-family: "DM Sans", sans-serif;
+    setTimeout(() => {
 
-    font-size: 15px;
+        petal.remove();
 
-    line-height: 1.5;
+    }, 7500);
 
-    color: #687f8b;
 }
-
-.petal {
-    position: fixed;
-
-    width: 9px;
-    height: 13px;
 
-    border-radius: 80% 20% 80% 20%;
 
-    opacity: 0;
 
-    pointer-events: none;
-
-    z-index: 50;
-
-    transform: rotate(25deg);
-}
-
-.petal.active {
-    animation:
-        petalFall 6s linear forwards;
-}
+setInterval(() => {
 
-@keyframes petalFall {
+    if (
+        document.visibilityState === "visible"
+    ) {
 
-    0% {
-        opacity: 0;
+        createPetal();
 
-        transform:
-            translateY(-20px)
-            rotate(25deg);
     }
 
-    10% {
-        opacity: 0.7;
+}, 2600);
+
+
+
+setInterval(() => {
+
+    if (
+        !mailboxOpened &&
+        document.visibilityState === "visible"
+    ) {
+
+        mailbox.animate(
+
+            [
+
+                {
+
+                    transform:
+                        "translateY(0) rotate(0deg)"
+
+                },
+
+                {
+
+                    transform:
+                        "translateY(-4px) rotate(-1deg)"
+
+                },
+
+                {
+
+                    transform:
+                        "translateY(0) rotate(0deg)"
+
+                }
+
+            ],
+
+            {
+
+                duration: 900,
+
+                easing: "ease-in-out"
+
+            }
+
+        );
+
     }
 
-    100% {
-        opacity: 0;
-
-        transform:
-            translateY(110vh)
-            translateX(80px)
-            rotate(280deg);
-    }
-}
-
-
-@media (max-width: 1000px) {
-
-    .letters-area {
-        grid-template-columns: repeat(3, 1fr);
-
-        max-width: 650px;
-    }
-
-}
-
-@media (max-width: 650px) {
-
-    .page {
-        padding-top: 45px;
-    }
-
-    .title {
-        font-size: clamp(54px, 15vw, 78px);
-
-        letter-spacing: -2px;
-    }
-
-    .subtitle {
-        margin-top: 16px;
-
-        font-size: 12px;
-    }
-
-    .mailbox-area {
-        height: 370px;
-    }
-
-    .mailbox-wrap {
-        transform: scale(0.82);
-    }
-
-    .mailbox-wrap:hover {
-        transform:
-            scale(0.82)
-            translateY(-4px);
-    }
-
-    .letters-area {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 25px 12px;
-    }
-
-    .envelope {
-        width: 160px;
-        height: 105px;
-    }
-
-    .envelope-flap {
-        border-left-width: 80px;
-        border-right-width: 80px;
-        border-top-width: 54px;
-    }
-
-    .envelope-left {
-        border-top-width: 52px;
-        border-bottom-width: 52px;
-        border-left-width: 80px;
-    }
-
-    .envelope-right {
-        border-top-width: 52px;
-        border-bottom-width: 52px;
-        border-right-width: 80px;
-    }
-
-    .envelope-bottom {
-        border-left-width: 80px;
-        border-right-width: 80px;
-        border-bottom-width: 58px;
-    }
-
-    .envelope-title {
-        top: 63px;
-
-        width: 130px;
-
-        font-size: 13px;
-    }
-
-    .letter-paper {
-        padding: 52px 27px 45px;
-    }
-
-    .letter-body {
-        font-size: 14px;
-
-        line-height: 1.8;
-    }
-
-}
-
-@media (max-width: 390px) {
-
-    .letters-area {
-        grid-template-columns: 1fr;
-    }
-
-    .mail-flower.left {
-        left: -5px;
-    }
-
-    .mail-flower.right {
-        right: -5px;
-    }
-
-}
+}, 6000);
